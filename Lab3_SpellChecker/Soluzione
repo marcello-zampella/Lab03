@@ -1,0 +1,13 @@
+Soluzione:
+per implementare il menu a tendina, la Combobox, è necessario scrivere a mano il codice e non usare lo scene builder.
+ <ComboBox value="One">
+    <items>
+        <FXCollections fx:factory="observableArrayList">
+            <String fx:value="Italiano"/>
+            <String fx:value="Inglese"/>
+        </FXCollections>
+    </items>
+</ComboBox>
+è importante ricordarsi di importare i pacchetti necessari per le classi FXCollection e String
+<?import javafx.collections.FXCollections?>
+<?import java.lang.*?>
