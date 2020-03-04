@@ -41,13 +41,29 @@ public class Dictionary {
 			r.setParola(s);
 			temp.add(r);
 			r.setCorretto(false);
-			for(int q=0; q<dizionario.size();q++) {
-			if(dizionario.get(q).equals(r.getParola())) {
+			int valore =dizionario.size()/2;
+			if(dizionario.get(valore).compareTo(r.getParola())==0) {
 				r.setCorretto(true);
-				q=dizionario.size();
-				flag=1;
+			}
+			if(dizionario.get(valore).compareTo(r.getParola())<0) {
+				for(int q=valore; q<dizionario.size();q++) {
+					if(dizionario.get(q).equals(r.getParola())) {
+						r.setCorretto(true);
+						q=dizionario.size();
+						flag=1;
+					}
 			}
 			}
+			if(dizionario.get(valore).compareTo(r.getParola())>0) {
+				for(int q=valore; q>=0;q--) {
+					if(dizionario.get(q).equals(r.getParola())) {
+						r.setCorretto(true);
+						q=-1;
+						flag=1;
+					}
+			}
+			}
+			
 			if(flag==0)
 				numeroErrori++;
 		}
