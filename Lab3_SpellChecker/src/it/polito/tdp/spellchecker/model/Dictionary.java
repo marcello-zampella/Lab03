@@ -36,18 +36,20 @@ public class Dictionary {
 		LinkedList<RichWord> temp=new LinkedList<RichWord>();
 		int numeroErrori=0;
 		for(String s: parole) {
+			int flag=0;
 			RichWord r=new RichWord();
 			r.setParola(s);
 			temp.add(r);
-			
-			if(dizionario.contains(s.toLowerCase())) {
+			r.setCorretto(false);
+			for(int q=0; q<dizionario.size();q++) {
+			if(dizionario.get(q).equals(r.getParola())) {
 				r.setCorretto(true);
-				
+				q=dizionario.size();
+				flag=1;
 			}
-			else {
-				r.setCorretto(false);
+			}
+			if(flag==0)
 				numeroErrori++;
-			}
 		}
 		
 		this.sbagliFattiProperty.set("Il numero di errori e' "+numeroErrori);
