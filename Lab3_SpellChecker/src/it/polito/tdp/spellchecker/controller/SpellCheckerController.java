@@ -69,7 +69,7 @@ public class SpellCheckerController {
     	for(int i=0;i<temp.length;i++) {
     		parole.add(temp[i]);
     	}
-    	LinkedList<RichWord> correzioni=this.model.SpellCheckText(parole);
+    	ArrayList<RichWord> correzioni=this.model.SpellCheckText(parole);
     	for(RichWord r: correzioni) {
     		if(!r.isCorretto())
     			this.txtLettura.appendText(r.getParola().toLowerCase()+"\n");
